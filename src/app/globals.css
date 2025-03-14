@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Tajawal font for Arabic */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap');
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -72,5 +75,10 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* RTL specific base styles */
+  html[dir="rtl"] body {
+    font-family: 'Tajawal', sans-serif;
   }
 } 

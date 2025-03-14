@@ -32,7 +32,7 @@ export default function FileUpload({
   
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const newFiles = acceptedFiles.map(file => {
-      const isImage = file.type.startsWith('image/');
+      const isImage = file.type?.startsWith('image/') || false;
       return {
         ...file,
         id: uuidv4(),
@@ -114,7 +114,7 @@ export default function FileUpload({
                   <img src={file.preview} alt={file.name} className="max-h-full max-w-full object-contain" />
                 ) : (
                   <div className="text-gray-400 text-xs text-center">
-                    {file.type.split('/')[1]?.toUpperCase() || 'FILE'}
+                    {file.type?.split('/')[1]?.toUpperCase() || 'FILE'}
                   </div>
                 )}
               </div>

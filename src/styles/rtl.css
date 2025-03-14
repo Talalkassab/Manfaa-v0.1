@@ -1,0 +1,156 @@
+/* RTL Support - Additional styles for Arabic and RTL languages */
+
+/* Flip Tailwind's directional classes in RTL mode */
+html[dir="rtl"] .text-left {
+  text-align: right !important;
+}
+
+html[dir="rtl"] .text-right {
+  text-align: left !important;
+}
+
+html[dir="rtl"] .ms-auto {
+  margin-right: auto !important;
+  margin-left: initial !important;
+}
+
+html[dir="rtl"] .me-auto {
+  margin-left: auto !important;
+  margin-right: initial !important;
+}
+
+html[dir="rtl"] .ps-0 {
+  padding-right: 0 !important;
+  padding-left: initial !important;
+}
+
+html[dir="rtl"] .pe-0 {
+  padding-left: 0 !important;
+  padding-right: initial !important;
+}
+
+html[dir="rtl"] .ms-0 {
+  margin-right: 0 !important;
+  margin-left: initial !important;
+}
+
+html[dir="rtl"] .me-0 {
+  margin-left: 0 !important;
+  margin-right: initial !important;
+}
+
+/* RTL specific adjustments for flex directions */
+html[dir="rtl"] .flex-row {
+  flex-direction: row-reverse !important;
+}
+
+html[dir="rtl"] .flex-row-reverse {
+  flex-direction: row !important;
+}
+
+/* RTL adjustments for rounded corners */
+html[dir="rtl"] .rounded-l {
+  border-radius: 0 !important;
+  border-top-right-radius: 0.25rem !important;
+  border-bottom-right-radius: 0.25rem !important;
+}
+
+html[dir="rtl"] .rounded-r {
+  border-radius: 0 !important;
+  border-top-left-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
+}
+
+/* RTL specific adjustments for transforms */
+html[dir="rtl"] .rotate-90 {
+  transform: rotate(-90deg) !important;
+}
+
+html[dir="rtl"] .rotate-180 {
+  transform: rotate(180deg) !important;
+}
+
+html[dir="rtl"] .translate-x-1 {
+  --tw-translate-x: -0.25rem !important;
+}
+
+html[dir="rtl"] .translate-x-2 {
+  --tw-translate-x: -0.5rem !important;
+}
+
+html[dir="rtl"] .translate-x-3 {
+  --tw-translate-x: -0.75rem !important;
+}
+
+html[dir="rtl"] .translate-x-4 {
+  --tw-translate-x: -1rem !important;
+}
+
+/* RTL specific adjustments for icons */
+html[dir="rtl"] .icon-flip {
+  transform: scaleX(-1) !important;
+}
+
+/* RTL specific adjustments for forms */
+html[dir="rtl"] input[type="text"],
+html[dir="rtl"] input[type="email"],
+html[dir="rtl"] input[type="password"],
+html[dir="rtl"] textarea {
+  text-align: right !important;
+}
+
+/* RTL specific adjustments for grid */
+html[dir="rtl"] .grid-cols-2,
+html[dir="rtl"] .grid-cols-3,
+html[dir="rtl"] .grid-cols-4,
+html[dir="rtl"] .grid-cols-5,
+html[dir="rtl"] .grid-cols-6 {
+  direction: rtl !important;
+}
+
+/* RTL specific adjustments for Arabic font support */
+html[dir="rtl"] body {
+  font-family: 'Tajawal', sans-serif !important;
+}
+
+/* Override box-shadow positions for RTL */
+html[dir="rtl"] .shadow-lg,
+html[dir="rtl"] .shadow-md,
+html[dir="rtl"] .shadow-sm,
+html[dir="rtl"] .shadow-xl,
+html[dir="rtl"] .shadow-2xl {
+  --tw-shadow-x-offset: calc(var(--tw-shadow-x-offset) * -1) !important;
+}
+
+/* RTL adjustment for background positions */
+html[dir="rtl"] .bg-left {
+  background-position: right !important;
+}
+
+html[dir="rtl"] .bg-right {
+  background-position: left !important;
+}
+
+/* Support for bidirectional text in code blocks */
+.rtl-isolate {
+  unicode-bidi: isolate;
+}
+
+/* Fix for list items in RTL */
+html[dir="rtl"] ul,
+html[dir="rtl"] ol {
+  padding-right: 1.5rem !important;
+  padding-left: 0 !important;
+}
+
+/* Proper handling of LTR content inside RTL */
+.ltr-text {
+  direction: ltr !important;
+  display: inline-block !important;
+}
+
+/* Proper handling of numbers that should stay LTR inside RTL content */
+.numeric {
+  direction: ltr !important;
+  display: inline-block !important;
+} 

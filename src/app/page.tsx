@@ -1,137 +1,101 @@
-import React from 'react';
+import { Search } from 'lucide-react';
 import Link from 'next/link';
+import { HomePageJsonLd } from '@/lib/structured-data';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen">
+      {/* Add JSON-LD structured data */}
+      <HomePageJsonLd />
+      
       {/* Hero Section */}
-      <header className="bg-primary-900 text-white">
-        <div className="container mx-auto px-4 py-16 md:py-24">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Manfaa Business Marketplace
-            </h1>
-            <p className="text-xl md:text-2xl mb-8">
-              The premier marketplace for buying and selling businesses in Saudi Arabia.
-            </p>
-            <div className="flex flex-col md:flex-row gap-4">
-              <Link
-                href="/businesses"
-                className="bg-white text-primary-900 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition"
-              >
-                Browse Businesses
-              </Link>
-              <Link
-                href="/auth/register"
-                className="bg-secondary text-white px-6 py-3 rounded-md font-medium hover:bg-secondary-600 transition"
-              >
-                Sign Up Now
-              </Link>
+      <section className="pt-32 pb-24 bg-gradient-to-b from-teal-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+            Buy and sell <br />
+            businesses with <br />
+            <span className="text-teal-600">growth potential</span>
+          </h1>
+
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-8">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="e.g. Saas, Amazon Store, AdSense, Ecommerce"
+                className="w-full px-4 py-3 pl-12 pr-16 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              />
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <Search className="h-5 w-5 text-gray-400" />
+              </div>
+              <button className="absolute inset-y-0 right-0 pr-3 flex items-center">
+                <span className="bg-teal-600 text-white px-4 py-1 rounded-md hover:bg-teal-700 transition-colors">
+                  Search
+                </span>
+              </button>
             </div>
           </div>
+
+          {/* Trending Tags */}
+          <div className="flex flex-wrap justify-center gap-3 text-sm">
+            <span className="text-gray-500">Trending:</span>
+            {['Shopify', 'AdSense', 'Travel Blog', 'Ecommerce'].map((tag) => (
+              <Link
+                key={tag}
+                href={`/browse?tag=${tag.toLowerCase()}`}
+                className="px-3 py-1 bg-white border border-gray-200 rounded-full text-gray-600 hover:border-teal-500 hover:text-teal-600 transition-colors"
+              >
+                {tag}
+              </Link>
+            ))}
+          </div>
         </div>
-      </header>
+      </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">How Manfaa Works</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-primary-100 text-primary-700 rounded-full flex items-center justify-center mb-4 text-xl font-bold">
-                1
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+            The easiest way to <br />
+            become an entrepreneur
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            {/* Feature 1 */}
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">List Your Business</h3>
-              <p className="text-gray-600">
-                Create your business listing with detailed information and privacy controls.
-              </p>
+              <h3 className="text-xl font-semibold mb-4">Find the perfect business</h3>
+              <p className="text-gray-600">Browse through our curated selection of established businesses ready for new ownership.</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-primary-100 text-primary-700 rounded-full flex items-center justify-center mb-4 text-xl font-bold">
-                2
+
+            {/* Feature 2 */}
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Connect with Buyers</h3>
-              <p className="text-gray-600">
-                Receive interest from potential buyers and control access to sensitive information.
-              </p>
+              <h3 className="text-xl font-semibold mb-4">Due diligence made easy</h3>
+              <p className="text-gray-600">Access detailed financial reports, analytics, and business metrics to make informed decisions.</p>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-md">
-              <div className="w-12 h-12 bg-primary-100 text-primary-700 rounded-full flex items-center justify-center mb-4 text-xl font-bold">
-                3
+
+            {/* Feature 3 */}
+            <div className="text-center">
+              <div className="w-16 h-16 mx-auto mb-6 bg-teal-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Complete Your Sale</h3>
-              <p className="text-gray-600">
-                Negotiate terms and finalize the deal with confidence and security.
-              </p>
+              <h3 className="text-xl font-semibold mb-4">Quick and secure transfer</h3>
+              <p className="text-gray-600">Complete your business acquisition with our secure and streamlined transfer process.</p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Call-to-Action Section */}
-      <section className="py-16 bg-primary-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Join the leading platform for business transactions in Saudi Arabia.
-          </p>
-          <div className="flex flex-col md:flex-row justify-center gap-4">
-            <Link
-              href="/businesses/create"
-              className="bg-white text-primary-900 px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition"
-            >
-              Sell Your Business
-            </Link>
-            <Link
-              href="/businesses"
-              className="bg-transparent text-white px-6 py-3 rounded-md font-medium border border-white hover:bg-primary-700 transition"
-            >
-              Find a Business
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Manfaa</h3>
-              <p className="text-gray-400">
-                The premier marketplace for buying and selling businesses in Saudi Arabia.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2">
-                <li><Link href="/businesses" className="text-gray-400 hover:text-white">Browse Businesses</Link></li>
-                <li><Link href="/businesses/create" className="text-gray-400 hover:text-white">Sell a Business</Link></li>
-                <li><Link href="/how-it-works" className="text-gray-400 hover:text-white">How It Works</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2">
-                <li><Link href="/about" className="text-gray-400 hover:text-white">About Us</Link></li>
-                <li><Link href="/contact" className="text-gray-400 hover:text-white">Contact</Link></li>
-                <li><Link href="/faqs" className="text-gray-400 hover:text-white">FAQs</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2">
-                <li><Link href="/terms" className="text-gray-400 hover:text-white">Terms of Service</Link></li>
-                <li><Link href="/privacy" className="text-gray-400 hover:text-white">Privacy Policy</Link></li>
-                <li><Link href="/cookies" className="text-gray-400 hover:text-white">Cookie Policy</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Manfaa. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 } 
